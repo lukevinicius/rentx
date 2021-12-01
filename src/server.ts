@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(categoriesRoutes);
+app.use('/categories', categoriesRoutes);
 
 app.listen(PORT, () => {
   log.info(`🚀 Server started on port ${PORT}`);

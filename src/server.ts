@@ -5,7 +5,9 @@ import log from './config/logger';
 import { router } from './routes';
 import swaggerFile from './swagger.json';
 
-const PORT = process.env.PORT || 3000;
+import './database';
+
+const PORT = process.env.PORT || 3333;
 
 const app = express();
 

@@ -1,4 +1,4 @@
-import { hash } from 'bcrypt';
+import { hash } from 'bcryptjs';
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '../../../../errors/AppError';
@@ -18,8 +18,13 @@ class CreateUserUseCase {
     password,
     driver_license,
   }: ICreateUserDTO): Promise<void> {
-    const userAlreadyExists = this.usersRepository.findByEmail(email);
+    const emailAlreadyExists = this.usersRepository.findByEmail(email);
 
+    if (!emailAlreadyExists) {
+      throw new AppError('User already exists', 403);
+    }
+
+    const userAlreadyExists = this.usersRepository.findByEmail(username);
     if (!userAlreadyExists) {
       throw new AppError('User already exists', 403);
     }

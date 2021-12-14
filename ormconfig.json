@@ -11,6 +11,7 @@
   "entities": [
     "./src/modules/**/entities/*.ts"
   ],
+  "synchronize": "true",
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }

@@ -3,13 +3,14 @@ import express from 'express';
 import 'express-async-errors';
 import swaggerUi from 'swagger-ui-express';
 
-import log from './config/logger';
-import { AppError } from './errors/AppError';
-import { router } from './routes';
-import swaggerFile from './swagger.json';
+import { AppError } from '@shared/errors/AppError';
+import { router } from '@shared/infra/http/routes';
 
-import './database';
-import './shared/container';
+import log from '../../../config/logger';
+import swaggerFile from '../../../swagger.json';
+
+import '../typeorm';
+import '@shared/container';
 
 const PORT = process.env.PORT || 3333;
 

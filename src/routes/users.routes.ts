@@ -11,7 +11,7 @@ const usersRoutes = Router();
 const uploudAvatar = multer(uploadConfig.upload('./tmp/avatar'));
 
 const createUserController = new CreateUserController();
-const updateUserAvatarUseCase = new UpdateUserAvatarController();
+const updateUserAvatarController = new UpdateUserAvatarController();
 
 usersRoutes.post('/', createUserController.handle);
 
@@ -19,7 +19,7 @@ usersRoutes.patch(
   '/avatar',
   ensureAuthenticated,
   uploudAvatar.single('avatar'),
-  updateUserAvatarUseCase.handle,
+  updateUserAvatarController.handle,
 );
 
 export { usersRoutes };

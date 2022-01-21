@@ -6,13 +6,13 @@
   "password": "ignite",
   "database": "rentxDB",
   "migrations": [
-    "./src/database/migrations/*.ts"
+    "./src/shared/infra/typeorm/migrations/*.ts"
   ],
   "entities": [
     "./src/modules/**/entities/*.ts"
   ],
   "synchronize": "true",
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
